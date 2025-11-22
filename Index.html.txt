@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jay Selenkay | Social Media Strategist & Creator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Jay Selenkay – social media strategist, creator and founder of Alakai Social. Helping brands and creators grow with smart content and community."
+  />
+  <style>
+    :root {
+      /* You can swap these for your exact Alakai colours */
+      --bg: #050816;
+      --bg-alt: #0f172a;
+      --primary: #8b5cf6;
+      --primary-soft: rgba(139, 92, 246, 0.1);
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: rgba(148, 163, 184, 0.25);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 1.5rem 1.5rem 3rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.95),
+        rgba(2, 6, 23, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 0, #a855f7, #4c1d95 55%, #020617);
+      box-shadow: 0 0 18px rgba(168, 85, 247, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.4rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(168, 85, 247, 0.6);
+      background: radial-gradient(circle at top left, #4c1d95 0, #020617 70%);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta span {
+      font-size: 0.9rem;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2.5rem 0 3rem;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.6rem 0.25rem 0.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, #1d2438 0, #020617 75%);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 0, #22c55e, #15803d 65%, #052e16);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+      border: 2px solid rgba(15, 118, 110, 0.9);
+    }
+
+    .hero-label span {
+      font-weight: 500;
+    }
+
+    .hero-kpi {
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #a7f3d0;
+      font-weight: 600;
+      font-size: 0.72rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #a855f7, #22d3ee, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 540px;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.8rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #4c1d95 0, #7c3aed 40%, #22c55e 120%);
+      border-color: rgba(168, 85, 247, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) translateX(1px);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.75);
+      color: var(--text);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .hero-badge span {
+      font-size: 0.9rem;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 22px;
+      padding: 1.2rem 1.2rem 1.1rem;
+      background: radial-gradient(circle at 0 0, #1e1b4b 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .hero-highlight {
+      border-radius: 16px;
+      padding: 0.9rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(79, 70, 229, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+    }
+
+    .highlight-title {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #c7d2fe;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-big {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-caption {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .metric-card {
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.8rem;
+    }
+
+    .metric-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .metric-value {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .metric-note {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .section {
+      margin: 2.5rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 380px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #020617 0, #020617 60%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .list li {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+    }
+
+    .list li span {
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem 0.95rem;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #000 100%);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .service-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .service-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .service-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-thumb {
+      height: 170px;
+      background: radial-gradient(circle at top, #4c1d95 0, #020617 60%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c7d2fe;
+    }
+
+    .project-body {
+      padding: 0.85rem 0.95rem 0.9rem;
+    }
+
+    .project-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+    }
+
+    .project-tag {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 1.5rem;
+    }
+
+    .quote-card {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.15rem 1rem;
+      background: radial-gradient(circle at 0 0, #111827 0, #020617 55%, #000 100%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.88rem;
+    }
+
+    .quote-text {
+      font-style: italic;
+      margin-bottom: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+
+    .quote-role {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .quote-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .quote-metric strong {
+      color: var(--text);
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1.1rem;
+      background: radial-gradient(circle at top right, #1e1b4b 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr);
+      gap: 1.2rem;
+    }
+
+    .contact-grid label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .input,
+    textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.7rem 0.75rem;
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .input:focus,
+    textarea:focus {
+      border-color: rgba(168, 85, 247, 0.9);
+      box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.5);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contact-footer {
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .social-pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .social-pill span {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 840px) {
+      .page {
+        padding-inline: 1.1rem;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-card {
+        padding: 1rem;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .split,
+      .testimonials,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo-mark">
+        <div class="logo-icon">JS</div>
+        <div>
+          <div class="logo-text-main">JAY SELENKAY</div>
+          <div class="logo-text-sub">Alakai Social</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#contact" class="nav-cta">
+              <span>Let’s talk</span> →
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="hero-label">
+          <div class="hero-dot"></div>
+          <span>Building brands in sports, fashion & culture</span>
+          <span class="hero-kpi">65-Day Social Challenge · Alakai</span>
+        </div>
+
+        <h1 id="hero-title" class="hero-title">
+          I turn <span>social media</span> into a growth engine.
+        </h1>
+        <p class="hero-subtitle">
+          I’m <strong>Jay Selenkay</strong>, founder of <strong>Alakai Social</strong>.
+          I build social ecosystems for brands, athletes and creators—across
+          TikTok, Instagram, YouTube and Twitch—with a sharp focus on
+          measurable impact, not vanity metrics.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn btn-primary">
+            Book a strategy call <span>↗</span>
+          </a>
+          <a href="#work" class="btn btn-ghost">
+            View selected work
+          </a>
+        </div>
+
+        <div class="hero-badges" aria-label="Key highlights">
+          <div class="hero-badge">
+            <span>★</span> €350k+ influencer budgets managed
+          </div>
+          <div class="hero-badge">
+            <span>⚽</span> Sports, fashion & lifestyle specialist
+          </div>
+          <div class="hero-badge">
+            <span>🎮</span> Social + gaming activations
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right" aria-label="At a glance">
+        <div class="hero-card">
+          <div class="hero-tag">At a glance</div>
+          <div class="hero-grid">
+            <div class="hero-highlight">
+              <div>
+                <div class="highlight-title">Brand & creator growth</div>
+                <div class="highlight-big">Social that actually sells.</div>
+                <p class="highlight-caption">
+                  Strategies built around funnels, not just feeds—from awareness to
+                  membership, affiliates and repeat purchase.
+                </p>
+              </div>
+            </div>
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <div class="metric-label">Influencer budgets</div>
+                <div class="metric-value">€350k+ / month</div>
+                <div class="metric-note">Across macro & mega creators</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Verticals</div>
+                <div class="metric-value">Sport · Fashion · Gaming</div>
+                <div class="metric-note">Sports Direct, ASOS & more</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">About</div>
+          <h2 id="about-title" class="section-title">Who I build with.</h2>
+        </div>
+        <p class="section-description">
+          I partner with brands, athletes and creators who want social to drive
+          <strong>real business outcomes</strong>—not just impressions. From
+          campaign spikes to always-on ecosystems.
+        </p>
+      </div>
+
+      <div class="split">
+        <article class="card">
+          <h3 class="card-title">Social architect, not just a “content guy”.</h3>
+          <p class="card-subtitle">
+            I design <strong>multi-layered social systems</strong>: retail media,
+            paid & organic campaigns, community, affiliates, membership and more.
+          </p>
+
+          <ul class="list">
+            <li>
+              <span>▹</span>
+              <div>
+                <strong>Full-funnel thinking.</strong><br />
+                From thumb-stopping video to landing pages, CRM and retention
+                flows—so every post knows its job.
+              </div>
+            </li>
+            <li>
+              <span>▹</span>
+              <div>
+                <strong>Platform-native ideas.</strong><br />
+                TikTok, IG Reels, YouTube & Twitch executions that feel organic,
+                not like repurposed TVCs.
+              </div>
+            </li>
+            <li>
+              <span>▹</span>
+              <div>
+                <strong>Creator culture first.</strong><br />
+                I live where your audience lives—football, gaming, streetwear,
+                and everyday creators.
+              </div>
+            </li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill">Social strategy</span>
+            <span class="pill">Influencer marketing</span>
+            <span class="pill">Content ecosystems</span>
+            <span class="pill">Community & membership</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Brands & spaces I’ve played in.</h3>
+          <p class="card-subtitle">
+            From big-box retailers to challenger brands and creators ready to
+            professionalise their presence.
+          </p>
+
+          <ul class="list">
+            <li>
+              <span>◎</span>
+              <div>
+                <strong>Sports & active.</strong><br />
+                Football, running and training stories that go beyond match day.
+              </div>
+            </li>
+            <li>
+              <span>◎</span>
+              <div>
+                <strong>Fashion & lifestyle.</strong><br />
+                Social-first drops, lookbooks and creator-led styling content.
+              </div>
+            </li>
+            <li>
+              <span>◎</span>
+              <div>
+                <strong>Gaming & streaming.</strong><br />
+                Crossovers between Pro Clubs, COD, GTA and creator-driven live
+                formats.
+              </div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Services</div>
+          <h2 id="services-title" class="section-title">How we can work together.</h2>
+        </div>
+        <p class="section-description">
+          A lean set of offers designed to give you clarity, a roadmap, and the
+          content systems to execute at pace.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-tag">01 · Strategy intensive</div>
+          <h3 class="service-title">Social ecosystem blueprint</h3>
+          <p class="service-body">
+            A deep-dive workshop plus a clear deck outlining your pillars,
+            formats, posting cadence, funnel and KPI framework—tailored to your
+            brand.
+          </p>
+          <div class="service-meta">
+            <span>Timeline: <strong>2 weeks</strong></span>
+            <span>Format: Strategy deck + call</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-tag">02 · Ongoing</div>
+          <h3 class="service-title">Done-with-you social ops</h3>
+          <p class="service-body">
+            Monthly partnership where I sit in your corner as your fractional
+            Head of Social—content calendars, feedback, ideas, performance
+            checks.
+          </p>
+          <div class="service-meta">
+            <span>Minimum: <strong>3 months</strong></span>
+            <span>Format: Async + calls</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-tag">03 · Creators</div>
+          <h3 class="service-title">Personal brand accelerator</h3>
+          <p class="service-body">
+            For athletes and creators who want to build a serious, monetisable
+            presence—positioning, content strategy, social franchises and
+            monetisation plan.
+          </p>
+          <div class="service-meta">
+            <span>Best for: <strong>Athletes & talent</strong></span>
+            <span>Format: 1:1 program</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="section" aria-labelledby="work-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Selected work</div>
+          <h2 id="work-title" class="section-title">Campaigns & social systems.</h2>
+        </div>
+        <p class="section-description">
+          A snapshot of the types of projects I build. Full case studies available
+          on request.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card">
+          <div class="project-thumb">
+            Sports retailer membership push
+          </div>
+          <div class="project-body">
+            <div class="project-title">“From scroll to sign-up” funnel.</div>
+            <div class="project-meta">
+              Retail · Always-on social + creator strategy.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Membership growth</span>
+              <span class="project-tag">Creator content</span>
+              <span class="project-tag">Paid + organic</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">
+            Football x creator storytelling
+          </div>
+          <div class="project-body">
+            <div class="project-title">Matchday to everyday story arc.</div>
+            <div class="project-meta">
+              Footballers & creators · IG & TikTok content ecosystem.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Athlete branding</span>
+              <span class="project-tag">Lookbooks</span>
+              <span class="project-tag">Short-form video</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">
+            Running x mental health series
+          </div>
+          <div class="project-body">
+            <div class="project-title">Movement is medicine.</div>
+            <div class="project-meta">
+              Brand x creators · Documentary-style content & social.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Storytelling</span>
+              <span class="project-tag">Docu-style</span>
+              <span class="project-tag">Community impact</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" aria-labelledby="testimonials-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Proof</div>
+          <h2 id="testimonials-title" class="section-title">What people say.</h2>
+        </div>
+        <p class="section-description">
+          References and full results available—this is just a flavour of how I
+          work with teams.
+        </p>
+      </div>
+
+      <div class="testimonials">
+        <article class="quote-card">
+          <p class="quote-text">
+            “Jay thinks about social like an operator, not just a creative. He’ll
+            bring you ideas that are smart, fast to execute and tied back to
+            commercial outcomes.”
+          </p>
+          <div class="quote-author">Marketing Lead, Sports Retailer</div>
+          <div class="quote-role">Brand & Performance Marketing</div>
+          <div class="quote-metrics">
+            <div class="quote-metric">
+              <strong>+X%</strong> uplift in engagement on key pillars
+            </div>
+            <div class="quote-metric">
+              <strong>XXk+</strong> incremental social reach per drop
+            </div>
+          </div>
+        </article>
+
+        <article class="quote-card">
+          <p class="quote-text">
+            “As a creator, I left with a clear content game-plan, confidence on
+            how to show up, and a roadmap to actually monetise my audience.”
+          </p>
+          <div class="quote-author">Creator & Athlete Client</div>
+          <div class="quote-role">Personal brand & partnerships</div>
+          <div class="quote-metrics">
+            <div class="quote-metric">
+              <strong>Consistent posting</strong> without burnout
+            </div>
+            <div class="quote-metric">
+              <strong>New brand deals</strong> within months
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 id="contact-title" class="section-title">
+            Ready to make your social serious?
+          </h2>
+        </div>
+        <p class="section-description">
+          Tell me a bit about your brand, where you’re at, and what “good” looks
+          like for you this year.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <form
+          action="mailto:your-email@example.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <div class="contact-grid">
+            <div>
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="Name"
+                type="text"
+                class="input"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="Email"
+                type="email"
+                class="input"
+                placeholder="you@brand.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="brand">Brand / creator name</label>
+              <input
+                id="brand"
+                name="Brand"
+                type="text"
+                class="input"
+                placeholder="Brand / creator handle"
+              />
+            </div>
+
+            <div>
+              <label for="budget">Rough budget</label>
+              <input
+                id="budget"
+                name="Budget"
+                type="text"
+                class="input"
+                placeholder="e.g. £2–5k, £10k+, not sure yet"
+              />
+            </div>
+          </div>
+
+          <div style="margin-top: 0.8rem;">
+            <label for="message">What are you trying to build?</label>
+            <textarea
+              id="message"
+              name="Project details"
+              placeholder="Give me a quick overview of your goals, platforms and timeline."
+            ></textarea>
+          </div>
+
+          <div class="contact-footer">
+            <button type="submit" class="btn btn-primary">
+              Send enquiry <span>↗</span>
+            </button>
+
+            <div>
+              <div style="margin-bottom: 0.2rem;">
+                Prefer DMs? Reach me here:
+              </div>
+              <div class="social-row" aria-label="Social links">
+                <a
+                  class="social-pill"
+                  href="https://www.instagram.com/yourhandle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>◎</span> Instagram
+                </a>
+                <a
+                  class="social-pill"
+                  href="https://www.tiktok.com/@yourhandle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>◎</span> TikTok
+                </a>
+                <a
+                  class="social-pill"
+                  href="https://www.youtube.com/@yourhandle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>◎</span> YouTube
+                </a>
+                <a
+                  class="social-pill"
+                  href="https://www.twitch.tv/yourhandle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>◎</span> Twitch
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Jay Selenkay · Alakai Social.</div>
+      <div>
+        Site built with intention, not templates. <a href="#contact">Let’s talk.</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>Ll
